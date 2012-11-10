@@ -45,7 +45,7 @@ a, a:visited, a:active {
 	right: 20px; 
 	z-index: 1
 }
-.box#github-note {
+#github-note {
 	display: none;
 	position: relative;
 	left: -25px;
