@@ -1,0 +1,32 @@
+body {
+	background: #555;
+	color: white;
+	font-family: Arial;
+}
+ 
+.box {
+	background-image: url(../img/dialog-bg.png);
+	color: black;
+	margin: 10px;
+}
+.box.green {
+	background-image: url(../img/dialog-bg-green.png);
+}
+
+.box.large {
+	width: 400px;
+	height: 400px;
+}
+
+.box.small {
+	width: 250px;
+	height: 250px;
+}
+	
+.box .contents {
+	padding: 25px;
+}
+
+.scale9-slice.outlines {
+	outline: 1px dotted red;
+}
