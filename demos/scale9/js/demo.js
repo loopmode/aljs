@@ -4,7 +4,10 @@
  */
 
 $(function() {
-			
+		
+	if (window.location.href.match(/guthub/)) {
+		$('#github-note').show();
+	}
 	//---------------------------------------------------------------------------
 	// basic usage: (expects elements to have a background-image set)
 	//---------------------------------------------------------------------------
@@ -20,14 +23,6 @@ $(function() {
 	// we use the 'cornerSize' function.
 	// alternative usage: $('.box.green').data('scale9').cornerSize(50);
 	$('.box.green').scale9('cornerSize', 50);
-	
-	
-	
-
-	// reinitialize a box at runtime. here we make the wrapped box appear green by
-	// we can call .scale9() as often as needed without breaking stuff 
-	$('.box .box').scale9({src: 'img/dialog-bg-green.png', cornerSize:50});
-	
 	
 	
 	
@@ -59,7 +54,9 @@ $(function() {
 	});
 	
 	
-	// buttons in boxes
+	// buttons 
+	
+	$('button').button();
 	
 	$('button.randomize').click(function() {
 		$(this).closest('.box')
@@ -71,14 +68,20 @@ $(function() {
 	});
 	
 	$('button.create').click(function() {
-		$(this).closest('.box').scale9();
+		$('.box').scale9();
+		$('.box.green').scale9('cornerSize', 50);
 	});
 	
 	$('button.destroy').click(function() {
-		$(this).closest('.box').scale9('destroy');
+		$('.box').scale9('destroy');
 	});
 	
 	$('button.slices').click(function() {
-		$(this).closest('.box').find('.scale9-slice').toggleClass('outlines');
+		$('body').toggleClass('outlines');
+	});
+	
+	$('button.hide-others').click(function() {
+		$('.box').hide();
+		$(this).closest('.box').show();
 	});
 });

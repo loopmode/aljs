@@ -1,11 +1,26 @@
 body {
-	background: #555;
-	color: white;
+	background: #999;
+	color: #222;
 	font-family: Arial;
+	padding: 0px;
+	margin: 0;
+	width: 100%;
+	height: 100%;
 }
- 
+.wrapper {
+	padding: 20px;
+}
+a, a:visited, a:active {
+	color: darkblue;
+}
+
+#github-note {display:none}
+.demo.boxes {
+	position: relative;
+	left: -20px;
+}
 .box {
-	background-image: url(../img/dialog-bg.png);
+	background-image: url(../img/login-dialog-bg.png);
 	color: black;
 	margin: 10px;
 }
@@ -22,11 +37,30 @@ body {
 	width: 250px;
 	height: 250px;
 }
-	
-.box .contents {
-	padding: 25px;
-}
 
-.scale9-slice.outlines {
-	outline: 1px dotted red;
+.box.special {
+	width: 350px;
+	height: auto;
+	position: fixed!important; 
+	bottom: 0px; 
+	right: 20px; 
+	z-index: 1
+}
+button {
+	margin: 5px;
+}
+.ui-button-text {
+	font-size: 12px!important;
+}
+.box .contents {
+	padding: 25px 25px 35px 25px;
+}
+h1:first-child, h2:first-child, h3:first-child {
+	margin-top: 0px;
+}
+.outlines .scale9-slice {
+	outline: 1px dashed red;
+}
+.outlines .scale9-slice.slice-fill {
+	outline: 1px dotted grey;
 }

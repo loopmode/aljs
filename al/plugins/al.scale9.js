@@ -13,9 +13,15 @@
 		element: null,
 		wrapper: null,
 		
+		/**
+		 * Array containing a DOM Element for each of the 9 slices
+		 */
+		slices: null,
+		
+		
 		defaults: function() {
 			return this.extend(this._super(), {
-				cornerSize: 20
+				cornerSize: 30
 			});
 		},
 		
