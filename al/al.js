@@ -9,7 +9,7 @@ var al;
 	}
 	
 	/**
-	 * @memberOf $
+	 * @memberOf window
 	 * @name al
 	 */
 	al = {
@@ -55,12 +55,12 @@ var al;
 		},
 
 		/**
-		 * Stoppt einen Event und bricht damit das Standard-Verhalten bei Ereignissen ab. Man muss diese Funktion als Rückgabe nutzen. 
-		 * Beispiel:
+		 * Shortcut function for stopping events. 
+		 * @example:
 		 * <code>
 		 * $('a').click(function(e) {
 		 *	// do something
-		 *	return prevent(e);
+		 *	return al.prevent(e);
 		 * });
 		 * </code>
 		 */
@@ -73,8 +73,8 @@ var al;
 		},
 
 		/**
-		 * Gibt den aktuellen Hash, also den Teil der IURL nach einer Raute ('#'), zurück
-		 * @return der aktuelle Hash
+		 * Returns the current hash value without the '#'.
+		 * @return the address hash value
 		 */
 		gethash: function() {
 			var hash = window.location.hash;
@@ -87,8 +87,8 @@ var al;
 		},
 		
 		/**
-		 * Setzt den hash in der Adresszeile, also den Teil nach der Raute ('#'), um damit einen Seitenwechsel zu initiieren.
-		 * @param value Der neue Wert für den Hash
+		 * sets the address hash value
+		 * @param value the new hash
 		 */
 		sethash: function(/**String*/ value) {
 			if (value && value.charAt(0) === '/') {
@@ -218,6 +218,16 @@ var al;
 			}
 		},
 
+		
+		/**
+		 * Resolves a string path to an object, if a match is found. If no second argument is passed, the function returns a reference to the specified object or property. 
+		 * If there is a second argument, and the path can be resolved, the value will be assigned to the object or property.
+		 * @example al.resolve('window.myobj.test', 'new value');
+		 * @todo: missing documentation!
+		 * @param path
+		 * @param value
+		 * @returns
+		 */
 		resolve : function(path, value) {
 			var context, 
 				curObjName, 
@@ -322,6 +332,8 @@ var al;
 	(function(){var i=false,fnTest=/xyz/.test(function(){xyz;})?/\b_super\b/:/.*/;this.Class=function(){};Class.extend=function(e){var f=this.prototype;i=true;var g=new this;i=false;var h;for(h in e){g[h]=typeof e[h]=="function"&&typeof f[h]=="function"&&fnTest.test(e[h])?function(c,d){return function(){var a=this._super;this._super=f[c];var b=d.apply(this,arguments);this._super=a;return b;};}(h,e[h]):e[h];}function Class(){if(!i&&this.construct){this.construct.apply(this,arguments);}}Class.prototype=g;Class.prototype.constructor=Class;Class.extend=arguments.callee;return Class;};}());
 
 	/** 
+	 * Base class
+	 * @todo missing documentation! 
 	 * @memberOf al
 	 * @name Class
 	 */
@@ -405,8 +417,8 @@ var al;
 	});
 
 	/**
-	 * String-based functions around dot-notation syntax.
-	 * Contains functions to access parts of a dot-path and to resolve objects from dot-paths.
+	 * String-based functions related to paths. Supports dot-notation (object paths) and slash-notation (urls).
+	 * Contains functions to access parts of a path and to resolve objects from paths.
 	 * @author Jovica Aleksic
 	 */
 
