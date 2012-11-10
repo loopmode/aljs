@@ -70,13 +70,21 @@ $(function() {
 	});
 	
 	$('button.create').click(function() {
+		$('button.destroy').show();
+		$('button.slices').show();
+		$(this).hide();
 		$('.box').scale9();
 		$('.box.green').scale9('cornerSize', 50);
 	});
 	
 	$('button.destroy').click(function() {
 		$('.box').scale9('destroy');
+		$('button.create').show();
+		$('button.slices').hide();
+		$(this).hide();
 	});
+	
+	$('button.create').hide();
 	
 	$('button.slices').click(function() {
 		$('body').toggleClass('outlines');
@@ -85,5 +93,12 @@ $(function() {
 	$('button.hide-others').click(function() {
 		$('.box').hide();
 		$(this).closest('.box').show();
+		$(this).hide();
+		$(this).closest('.box').css({
+			position: 'absolute',
+			bottom: 'auto',
+			left: 0.5 * ($(window).width() - $(this).closest('.box').width()),
+			top: 0.5 * ($(window).height() - $(this).closest('.box').height())
+		}).scale9('resize').resizable();
 	});
 });
