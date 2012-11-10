@@ -55,6 +55,20 @@
 			this.element.css({backgroundImage: 'none'});
 		},
 		
+		applyCSS: function(el, obj) {
+			var p = null,
+				val = null;
+			for (p in obj) {
+				if (obj.hasOwnProperty(p)) {
+					val = obj[p];
+					if (typeof val === 'number') {
+						val = val + 'px';
+					}
+					el.style[p] = val;
+				}
+			}				
+		},
+		
 		resize: function() {
 			
 			var el = this.element,
@@ -64,22 +78,11 @@
 				w = el.width(),
 				h = el.height(),
 				s = this.slices,
-				css;
+				css = this.applyCSS
 			;
 			
 			wrap.remove();
 			
-			css = function(el,obj) {
-				for (var p in obj) {
-					if (obj.hasOwnProperty(p)) {
-						var val = obj[p];
-						if (typeof val === 'number') {
-							val = val + 'px';
-						}
-						el.style[p] = val;
-					}
-				}				
-			};
 
 			//---------------------------------------
 			// CORNER SLICES
