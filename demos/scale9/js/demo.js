@@ -8,6 +8,9 @@ $(function() {
 	if (window.location.href.match(/guthub/)) {
 		$('#github-note').show();
 	}
+	
+	$('button').button();
+	
 	//---------------------------------------------------------------------------
 	// basic usage: (expects elements to have a background-image set)
 	//---------------------------------------------------------------------------
@@ -55,9 +58,6 @@ $(function() {
 	
 	
 	// buttons 
-	
-	$('button').button();
-	
 	$('button.randomize').click(function() {
 		$(this).closest('.box')
 		.css({

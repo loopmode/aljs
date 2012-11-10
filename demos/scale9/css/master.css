@@ -39,9 +39,9 @@ a, a:visited, a:active {
 }
 
 .box.special {
+	position: fixed!important;
 	width: 350px;
 	height: auto;
-	position: fixed!important; 
 	bottom: 0px; 
 	right: 20px; 
 	z-index: 1
@@ -53,8 +53,9 @@ button {
 	font-size: 12px!important;
 }
 .box .contents {
-	padding: 25px 25px 35px 25px;
+	padding: 25px;
 }
+
 h1:first-child, h2:first-child, h3:first-child {
 	margin-top: 0px;
 }

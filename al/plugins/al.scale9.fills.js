@@ -1,6 +1,7 @@
 /*global window, Image, jQuery, al*/
 /*jslint nomen: true*/
 (function($, al) {
+	
 	"use strict";
 	
 	/**
