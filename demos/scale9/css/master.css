@@ -14,7 +14,6 @@ a, a:visited, a:active {
 	color: darkblue;
 }
 
-#github-note {display:none}
 .demo.boxes {
 	position: relative;
 	left: -20px;
@@ -45,6 +44,11 @@ a, a:visited, a:active {
 	bottom: 0px; 
 	right: 20px; 
 	z-index: 1
+}
+.box#github-note {
+	display: none;
+	position: relative;
+	left: -25px;
 }
 button {
 	margin: 5px;
