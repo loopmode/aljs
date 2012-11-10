@@ -1,4 +1,5 @@
 /*global window, jQuery*/
+/* @require jQuery.jStorage */
 /*jslint white: true, nomen: true*/
 (function($, al) {
 	"use strict";
