@@ -41,7 +41,6 @@
 			
 			
 			//this.log(this.element.css('width'))
-			$(window).bind(this.ns('resize'), $.proxy(this.resize, this));
 		},
 		
 		initialize: function() {
