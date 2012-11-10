@@ -16,6 +16,8 @@ $(function() {
 	//---------------------------------------------------------------------------
 	$('.box').scale9();
 	
+	// elements with percentage-based with need to resize on browser resize.
+	$('.box.block').scale9('autoResize', true);
 	
 	//---------------------------------------------------------------------------
 	// various advanced feature demos

@@ -17,6 +17,7 @@ a, a:visited, a:active {
 .demo.boxes {
 	position: relative;
 	left: -20px;
+	width: 101%;
 }
 .box {
 	background-image: url(../img/login-dialog-bg.png);
@@ -26,7 +27,6 @@ a, a:visited, a:active {
 .box.green {
 	background-image: url(../img/dialog-bg-green.png);
 }
-
 .box.large {
 	width: 400px;
 	height: 400px;
@@ -37,6 +37,10 @@ a, a:visited, a:active {
 	height: 250px;
 }
 
+.box.block {
+	width: 100%;
+	height: auto;
+}
 .box.special {
 	position: fixed!important;
 	width: 350px;

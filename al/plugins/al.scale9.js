@@ -38,6 +38,10 @@
 			
 			this.initialize();
 			this.resize();
+			
+			
+			//this.log(this.element.css('width'))
+			$(window).bind(this.ns('resize'), $.proxy(this.resize, this));
 		},
 		
 		initialize: function() {
@@ -216,13 +220,39 @@
 			})
 			.data('scale9', null);
 			this.wrapper.remove();
+			$(window).unbind(this.ns());
 			return this.element;
 		},
 		
+		
+		/**
+		 * Sets the cornersize value. This will be the width and height of the corner slices.
+		 * @param {number} value The new corner size.
+		 */
 		cornerSize: function(value) {
 			this.options.cornerSize = value;
 			this.resize();
+		},
+		
+		
+		/**
+		 * Enables automatic resize when the browser size changes. 
+		 * @param {boolean} value true or false, activate or deactivate the feature 
+		 * @returns
+		 */
+		autoResize: function(value) {
+			if (value !== undefined) {
+				$(window).unbind(this.ns('resize'));
+				this.autoResizeEnabled = value;
+				if (value === true) {
+					$(window).bind(this.ns('resize'), $.proxy(this.resize, this));
+				}
+			}
+			else {
+				return this.autoResizeEnabled;
+			}
 		}
+		
 	};
 	al.defineClass('al.ui.Scale9', Scale9);
 	

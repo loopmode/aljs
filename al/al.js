@@ -229,10 +229,11 @@ var al;
 		 * @returns
 		 */
 		resolve : function(path, value) {
-			var context, 
-				curObjName, 
+			var context=null, 
+				curObjName=null, 
 				recompose, 
-				newObj, newString;
+				newObj = null, 
+				newString = null;
 			recompose = $.proxy(function(obj, string, val) {
 				var parts = string.split('.');
 				if (!obj && value) {
@@ -329,7 +330,7 @@ var al;
 	 * By John Resig http://ejohn.org/
 	 * MIT Licensed.
 	 */
-	(function(){var i=false,fnTest=/xyz/.test(function(){xyz;})?/\b_super\b/:/.*/;this.Class=function(){};Class.extend=function(e){var f=this.prototype;i=true;var g=new this;i=false;var h;for(h in e){g[h]=typeof e[h]=="function"&&typeof f[h]=="function"&&fnTest.test(e[h])?function(c,d){return function(){var a=this._super;this._super=f[c];var b=d.apply(this,arguments);this._super=a;return b;};}(h,e[h]):e[h];}function Class(){if(!i&&this.construct){this.construct.apply(this,arguments);}}Class.prototype=g;Class.prototype.constructor=Class;Class.extend=arguments.callee;return Class;};}());
+	(function(){var i=false,fnTest=/xyz/.test(function(){xyz;})?/\b_super\b/:/.*/;this.Class=function(){};Class.extend=function(e){var f=this.prototype;i=true;var g=new this;i=false;var h=null;for(h in e){g[h]=typeof e[h]=="function"&&typeof f[h]=="function"&&fnTest.test(e[h])?function(c,d){return function(){var a=this._super;this._super=f[c];var b=d.apply(this,arguments);this._super=a;return b;};}(h,e[h]):e[h];}function Class(){if(!i&&this.construct){this.construct.apply(this,arguments);}}Class.prototype=g;Class.prototype.constructor=Class;Class.extend=arguments.callee;return Class;};}());
 
 	/** 
 	 * Base class
@@ -352,6 +353,7 @@ var al;
 
 		construct : function(options) {
 			this.options = this.extend(this.defaults(), options);
+			this.uid = new Date().getTime() +  Math.round(Math.random()*10000);
 		},
 
 		log : function() {
@@ -409,7 +411,7 @@ var al;
 			if (ns.substr(0, 2) === '$_') {
 				ns = ns.substr(2, ns.length);
 			}
-			return (eventName || '') + '.' + ns + this.classname;
+			return (eventName || '') + '.' + ns + this.classname + '_' + this.uid;
 		},
 		extend : function(a, b) {
 			return $.extend(true, {}, a, b);
