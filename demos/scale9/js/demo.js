@@ -5,7 +5,7 @@
 
 $(function() {
 		
-	if (window.location.href.match(/guthub/)) {
+	if (window.location.href.match(/github/)) {
 		$('#github-note').show();
 	}
 	
