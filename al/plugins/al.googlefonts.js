@@ -148,7 +148,7 @@
 			return $.trim(str.split(':')[0].replace(/\+/g, ' ').replace(/\'/g, '').replace(/\\n/g, ''));
 		},
 		toProperCase: function(f) {
-			var data, items, result, i, t;
+			var data, items, result=null, i, t;
 			data = this.getData();
 			if (data && data.items) {
 				items = data.items;
@@ -171,7 +171,7 @@
 			}
 			var o = this.options,
 				ckConfig = window.CKEDITOR.config,
-				items, names = '', embeds;
+				items, names = '', embeds = null;
 			try {
 				if (this.data && this.data.items) {
 					items = this.data.items;
