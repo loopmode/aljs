@@ -379,6 +379,27 @@ var al;
 			return this.element ? this.element.find(selector) : $();
 		},
 		
+		eventElement: function() {
+			if (!this.$eventElement) { this.$eventElement = this.element || $('<div>'); }
+			return this.$eventElement;
+		},
+		bind: function () {
+			var el = this.eventElement();
+			el.bind.apply(el, arguments);
+        },
+        unbind: function () {
+			var el = this.eventElement();
+			el.unbind.apply(el, arguments);
+        },
+        trigger: function () {
+			var el = this.eventElement();
+			el.trigger.apply(el, arguments);
+        },
+        
+        setOptions: function(o) {
+        	this.options = $.extend(true, {}, this.options, o);
+        },
+        
 		/**
 		 * Namespaces a jquery event name.
 		 * 
