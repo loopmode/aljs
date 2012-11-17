@@ -89,7 +89,7 @@
 			// trim white left/right
 			str = $.trim(str);
 			// remove whitespace
-			str = str.replace(/^\s+|\s+$/, '').replace('/\s\s+/', ' ')
+			str = str.replace(/^\s+|\s+$/, '').replace('/\s\s+/', ' ');
 			// remove newlines
 			str = str.replace(/(\r\n|\n|\r|\t)/gm,"");
 			
